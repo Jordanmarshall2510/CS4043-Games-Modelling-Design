@@ -38,7 +38,7 @@ hygeineText:setFillColor( 1, 1, 1 )
 local hungerText = display.newText("Hunger " .. hunger, 500, 80, native.systemFont , 20 )
 hungerText:setFillColor( 1, 1, 1 )
 
-local happinessText = display.newText("happiness " .. happiness, 500, 100, native.systemFont , 20 )
+local happinessText = display.newText("Happiness " .. happiness, 500, 100, native.systemFont , 20 )
 moneyText:setFillColor( 1, 1, 1 )
 
 -----Moves sprite to coords of touch-----
