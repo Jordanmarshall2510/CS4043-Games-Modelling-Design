@@ -11,8 +11,7 @@ local money = 0
 local sleep = 100
 local hygeine = 100 
 local hunger = 100 
-local selfEsteem = 100
-
+local happiness = 100
 local grass = display.newImageRect("grass.png", 1920, 1080)
 grass.x = display.contentCenterX
 grass.y = display.contentCenterY
@@ -39,7 +38,7 @@ hygeineText:setFillColor( 1, 1, 1 )
 local hungerText = display.newText("Hunger " .. hunger, 500, 80, native.systemFont , 20 )
 hungerText:setFillColor( 1, 1, 1 )
 
-local selfEsteemText = display.newText("Self Esteem " .. selfEsteem, 500, 100, native.systemFont , 20 )
+local happinessText = display.newText("happiness " .. happiness, 500, 100, native.systemFont , 20 )
 moneyText:setFillColor( 1, 1, 1 )
 
 -----Moves sprite to coords of touch-----
@@ -62,7 +61,7 @@ local function randomEvent()
 	--eventID will be added as a random variable
 		if(eventID == 1) --Night out, for instance
 			then 
-			selfEsteem = selfEsteem + 70 -- I propose renaming self esteem to sanity or happiness  
+			happiness = happiness + 70 -- I propose renaming self esteem to sanity or happiness  
 			money = money - 20 -- I'll add some randomisation to how much you lose
 			sleep = sleep - 20
 			hygeine = hygeine -25
