@@ -3,67 +3,71 @@
 -- main.lua
 --
 -----------------------------------------------------------------------------------------
-local physics = require "physics"
-physics.start( )
-physics.setGravity( 0, 0 ) -- prevents the character from falling off 
 
-local money = 0
-local sleep = 100
-local hygeine = 100 
-local hunger = 100 
-local happiness = 100
-local grass = display.newImageRect("grass.png", 1920, 1080)
-grass.x = display.contentCenterX
-grass.y = display.contentCenterY
+local background = display.newImageRect( "Floor.png", 600, 350 )
+background.x = display.contentCenterX
+background.y = display.contentCenterY
 
-local library = display.newImageRect("library.png", 74, 87)
-library.x = -222
-library.y = 412
-local libraryOutline = graphics.newOutline( 2, "library.png" )
+local building = display.newImageRect( "building.png", 40, 40)
+building.x = display.contentWidth0
+building.y = display.contentHeight-40
 
+local food = display.newImageRect( "food.png", 25, 20)
+food.x = display.contentWidth-10
+food.y = display.contentHeight-310
 
-local student = display.newImageRect( "student.png", 70, 70 )
-student.x = display.contentCenterX
-student.y = display.contentCenterY
+local SE = display.newImageRect( "SE.png", 25, 20)
+SE.x = display.contentWidth-10
+SE.y = display.contentHeight-290
 
-local moneyText = display.newText("Money " .. money, 500, 20, native.systemFont , 20 )
-moneyText:setFillColor( 1, 1, 1 )
+local intel = display.newImageRect( "intel.png", 30, 20)
+intel.x = display.contentWidth-8
+intel.y = display.contentHeight-270
 
-local sleepText = display.newText("Sleep " .. sleep, 500, 40, native.systemFont , 20 )
-sleepText:setFillColor( 1, 1, 1 )
+local hygiene = display.newImageRect( "hygiene.png", 30, 20)
+hygiene.x = display.contentWidth-15
+hygiene.y = display.contentHeight-250
 
-local hygeineText = display.newText("Hygeine " .. hygeine, 500, 60, native.systemFont , 20 )
-hygeineText:setFillColor( 1, 1, 1 )
+local bed = display.newImageRect( "bed.png", 30, 20)
+bed.x = display.contentWidth-15
+bed.y = display.contentHeight-230
 
-local hungerText = display.newText("Hunger " .. hunger, 500, 80, native.systemFont , 20 )
-hungerText:setFillColor( 1, 1, 1 )
+local club = display.newImageRect( "club.png", 50, 60)
+club.x = display.contentWidth-200
+club.y = display.contentHeight-280
 
-local happinessText = display.newText("Happiness " .. happiness, 500, 100, native.systemFont , 20 )
-moneyText:setFillColor( 1, 1, 1 )
+local house = display.newImageRect( "house.png", 90, 80)
+house.x = display.contentWidth-50
+house.y = display.contentHeight-50
 
------Moves sprite to coords of touch-----
-local function onTouch(event)
-	if(event.phase == "ended") then 
-	transition.to(student, {x=event.x, y=event.y})
-	print(event.x, event.y)
-	end
-end
-Runtime:addEventListener("touch", onTouch)
+local libary = display.newImageRect( "libary.png", 90, 100)
+libary.x = display.contentWidth-450
+libary.y = display.contentHeight-270
 
---Character physics and building physics-- 
---[TODO: Make it so the building is rock solid and the character can't go through it at all]-- 
-physics.addBody( student, "dynamic", { bounce=0, angle=0 })
-student.isFixedRotation = true 
-physics.addBody( library, "static")
+local work = display.newImageRect( "work.png", 50, 50)
+work.x = display.contentWidth-300
+work.y = display.contentHeight-270
 
---Random events, only an example
-local function randomEvent() 
-	--eventID will be added as a random variable
-		if(eventID == 1) --Night out, for instance
-			then 
-			happiness = happiness + 70 -- I propose renaming self esteem to sanity or happiness  
-			money = money - 20 -- I'll add some randomisation to how much you lose
-			sleep = sleep - 20
-			hygeine = hygeine -25
-		end
-	end
+local ms = display.newImageRect( "ms.png", 70, 70)
+ms.x = display.contentWidth-300
+ms.y = display.contentHeight-40
+
+local fb = display.newImageRect( "fb.png", 70, 70)
+fb.x = display.contentWidth-200
+fb.y = display.contentHeight-40
+
+local fountain = display.newImageRect( "fountain.png", 70, 70)
+fountain.x = display.contentWidth-250
+fountain.y = display.contentHeight-150
+
+local su = display.newImageRect( "su.png", 70, 50)
+su.x = display.contentWidth-450
+su.y = display.contentHeight-150
+
+local Tree = display.newImageRect( "Tree.png", 70, 50)
+Tree.x = display.contentWidth-350
+Tree.y = display.contentHeight-200
+
+local Tree = display.newImageRect( "Tree.png", 50, 30)
+Tree.x = display.contentWidth-150
+Tree.y = display.contentHeight-200
