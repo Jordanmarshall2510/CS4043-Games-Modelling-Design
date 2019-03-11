@@ -1,14 +1,15 @@
 -- Movement --
------Moves sprite to coords of touch-----
 
 local movement = { } 
 
-function movement.onTouch(movement.event)
-	if(movement.event.phase == "ended") then 
-	transition.to(student, {x=movement.event.x, y=movement.event.y})
-	print(movement.event.x, movement.event.y)
+--I don't know if we're using this movement anymore, if we're doing WASD, please implement it
+function onTouch(event)
+	if(event.phase == "ended") then 
+	transition.to(student, {x=event.x, y=event.y})
+	print(event.x, event.y)
 	end
 end
-Runtime:addEventListener("touch", movement.onTouch)
+Runtime:addEventListener("touch", onTouch)
+
 
 return movement 

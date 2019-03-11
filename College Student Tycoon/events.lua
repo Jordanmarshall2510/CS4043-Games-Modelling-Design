@@ -7,10 +7,12 @@ function events.generateRandomEvent()
 	--eventID will be added as a random variable
 		if(eventID == 1) --Night out, for instance
 			then 
-			selfEsteem = selfEsteem + 70 -- I propose renaming self esteem to sanity or happiness  
-			money = money - 20 -- I'll add some randomisation to how much you lose
-			sleep = sleep - 20
-			hygeine = hygeine -25 
+			stats.selfEsteem = stats.selfEsteem + 70 -- I propose renaming self esteem to sanity or happiness  
+			stats.money = stats.money - 20 -- I'll add some randomisation to how much you lose
+			stats.sleep = stats.sleep - 20
+			stats.hygeine = stats.hygeine -25 
+			--Always clear stats before new ones are displayed-- 
+			stats.refresh()
 		print(eventID)
 		end
 	end

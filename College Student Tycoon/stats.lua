@@ -24,7 +24,7 @@ stats.selfEsteem = 100
 --Display everything, to be called in the main file-- 
 
 function stats.display()
-
+	
 	stats.moneyText = display.newText("Money " .. stats.money, 500, 20, native.systemFont , 20 )
 	stats.moneyText:setFillColor( 1, 1, 1 )
 
@@ -40,6 +40,21 @@ function stats.display()
 	stats.selfEsteemText = display.newText("Self Esteem " .. stats.selfEsteem, 500, 100, native.systemFont , 20 )
 	stats.moneyText:setFillColor( 1, 1, 1 )
 	
+end
+
+function stats.clear() 
+
+	stats.moneyText:removeSelf()
+	stats.hungerText:removeSelf()
+	stats.sleepText:removeSelf()
+	stats.hygeineText:removeSelf()
+	stats.selfEsteemText:removeSelf() 
+	
+end
+
+function stats.refresh()
+	stats.clear()
+	stats.display()
 end
 
 return stats 
