@@ -3,23 +3,24 @@ local stats = { }
 
 --Money-- 
 
-stats.money = 0
+stats.money = 1000
 
 --Sleep--
 
-stats.sleep = 100
+stats.sleep = math.random(70,100)
 
 --Hygeine--
 
-stats.hygeine = 100 
+stats.hygeine = math.random(70,100) 
 
 --Hunger-- 
 
-stats.hunger = 100 
+stats.hunger = math.random(70,100) 
+
 
 --Self esteem -- 
 
-stats.selfEsteem = 100
+stats.selfEsteem = math.random(70,100)
 
 --Display everything, to be called in the main file-- 
 

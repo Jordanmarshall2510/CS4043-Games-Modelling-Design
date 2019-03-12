@@ -14,7 +14,7 @@ local grass = display.newImageRect("grass.png", 1920, 1080)
 grass.x = display.contentCenterX
 grass.y = display.contentCenterY
 
---Intiially display stats, use stats.refresh from now on 
+--Intiially display stats, use stats.refresh from now on
 stats.display()
 
 local library = display.newImageRect("library.png", 74, 87)
