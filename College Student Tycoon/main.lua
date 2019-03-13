@@ -6,7 +6,8 @@
 local physics = require "physics"
 local events = require "events"
 local stats = require "stats" 
-local assets = require "assets"
+--local assets = require "assets"
+--Commented assets out for now because there's no assets.lua
 
 physics.start( )
 physics.setGravity( 0, 0 )
