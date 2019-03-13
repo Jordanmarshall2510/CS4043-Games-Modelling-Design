@@ -18,9 +18,9 @@ stats.hygeine = math.random(70,100)
 stats.hunger = math.random(70,100) 
 
 
---Self esteem -- 
+--Happiness-- 
 
-stats.selfEsteem = math.random(70,100)
+stats.happiness = math.random(70,100)
 
 --Display everything, to be called in the main file-- 
 
@@ -38,8 +38,8 @@ function stats.display()
 	stats.hungerText = display.newText("Hunger " .. stats.hunger, 500, 80, native.systemFont , 20 )
 	stats.hungerText:setFillColor( 1, 1, 1 )
 
-	stats.selfEsteemText = display.newText("Self Esteem " .. stats.selfEsteem, 500, 100, native.systemFont , 20 )
-	stats.moneyText:setFillColor( 1, 1, 1 )
+	stats.happinessText= display.newText("Happiness " .. stats.happiness, 500, 100, native.systemFont , 20 )
+	stats.happinessText:setFillColor( 1, 1, 1 )
 	
 end
 
@@ -49,7 +49,7 @@ function stats.clear()
 	stats.hungerText:removeSelf()
 	stats.sleepText:removeSelf()
 	stats.hygeineText:removeSelf()
-	stats.selfEsteemText:removeSelf() 
+	stats.happinessText:removeSelf() 
 	
 end
 

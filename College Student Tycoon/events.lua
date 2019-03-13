@@ -7,7 +7,7 @@ function events.generateRandomEvent()
 	--eventID will be added as a random variable
 		if(eventID == 1) --Night out, for instance
 			then 
-			stats.selfEsteem = stats.selfEsteem + 70 -- I propose renaming self esteem to sanity or happiness  
+			stats.happiness= stats.happiness + 70 -- I propose renaming self esteem to sanity or happiness  
 			stats.money = stats.money - 20 -- I'll add some randomisation to how much you lose
 			stats.sleep = stats.sleep - 20
 			stats.hygeine = stats.hygeine -25 
