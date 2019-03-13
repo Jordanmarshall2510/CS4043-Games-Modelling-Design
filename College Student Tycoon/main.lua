@@ -48,7 +48,7 @@ SU.y = 150
 --in the foreground
 stats.display()
 timeSystem.displayTime()
-timeSystem.advanceTime(5)
+timeSystem.advanceTime(5) -- just here to demosntrate that time advancement does work
 
 
 
