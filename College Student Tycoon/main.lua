@@ -6,6 +6,7 @@
 local physics = require "physics"
 local events = require "events"
 local stats = require "stats" 
+local timeSystem = require "timeSystem" 
 --local assets = require "assets"
 --Commented assets out for now because there's no assets.lua
 
@@ -15,11 +16,6 @@ physics.setGravity( 0, 0 )
 local grass = display.newImageRect("grass.png", 1920, 1080)
 grass.x = display.contentCenterX
 grass.y = display.contentCenterY
-
---Intiially display stats, use stats.refresh from now on
-stats.display()
-
-
 
 local libraryOutline = graphics.newOutline( 2, "library.png" )
 
@@ -47,7 +43,12 @@ local SU = display.newImageRect("SU.png", 74, 87)
 SU.x = -150
 SU.y = 150
 
-
+--Intiially display stats, use stats.refresh from now on
+--Display stats and time after all the other buildings so that the stats are 
+--in the foreground
+stats.display()
+timeSystem.displayTime()
+timeSystem.advanceTime(5)
 
 
 
