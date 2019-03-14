@@ -17,12 +17,6 @@ local grass = display.newImageRect("grass.png", 1920, 1080)
 grass.x = display.contentCenterX
 grass.y = display.contentCenterY
 
-local libraryOutline = graphics.newOutline( 2, "library.png" )
-
-local student = display.newImageRect( "student.png", 70, 70 )
-student.x = display.contentCenterX
-student.y = display.contentCenterY
-
 local library = display.newImageRect("library.png", 74, 87)
 library.x = -200
 library.y = 400
@@ -42,6 +36,18 @@ MedicalSchool.y = 150
 local SU = display.newImageRect("SU.png", 74, 87)
 SU.x = -150
 SU.y = 150
+
+local student = display.newImageRect( "student.png", 70, 70 )
+student.x = display.contentCenterX
+student.y = display.contentCenterY
+
+function onTouch(event)
+	if(event.phase == "ended") then 
+	transition.to(student, {x=event.x, y=event.y})
+	print(event.x, event.y)
+	end
+end
+Runtime:addEventListener("touch", onTouch)
 
 --Intiially display stats, use stats.refresh from now on
 --Display stats and time after all the other buildings so that the stats are 
