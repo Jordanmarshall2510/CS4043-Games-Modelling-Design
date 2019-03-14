@@ -22,6 +22,12 @@ stats.hunger = math.random(70,100)
 
 stats.happiness = math.random(70,100)
 
+
+--Intelligence--
+
+stats.intel = math.random(70,100)
+
+
 --Display everything, to be called in the main file-- 
 
 function stats.display()
@@ -41,6 +47,9 @@ function stats.display()
 	stats.happinessText= display.newText("Happiness " .. stats.happiness, 500, 100, native.systemFont , 20 )
 	stats.happinessText:setFillColor( 1, 1, 1 )
 	
+	stats.intelText= display.newText("Intelligence " .. stats.intel, 500, 120, native.systemFont , 20 )
+	stats.intelText:setFillColor( 1, 1, 1 )
+
 end
 
 function stats.clear() 
