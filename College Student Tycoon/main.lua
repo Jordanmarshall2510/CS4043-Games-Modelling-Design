@@ -210,7 +210,19 @@ function initializeGameScreen()
 
 	local native = native.showAlert("Introduction", "You recieve a grant payment of €500 every 4 days.", {"OK"}, enterLibrary)
 
+	function endGame()
+		if(stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <=0 or stats.intel <= 0) then
+			background = display.newImageRect("background.png", 1920,1080)
+			background.x = 960
+			background.y = 520
+		end
+	end
+
+Runtime:addEventListener("touch", endGame)
+
 end
+
+
 
 --Run the game--
 main()
