@@ -6,8 +6,8 @@ local eventID = 1
 
 --Random events--
 function grant()
-	if(timeSystem.day == 4) then
-		stats.money = stats.money + 500
+	if(timeSystem.day == 4 and timeSystem.time == 9 or timeSystem.day == 8 and timeSystem.time == 9 or timeSystem.day == 12 and timeSystem.time == 9) then
+		stats.money = stats.money + 250
 		stats.refresh()
 	end
 end
