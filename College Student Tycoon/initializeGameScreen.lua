@@ -100,7 +100,7 @@ function initializeGameScreen()
 
 	local tree = display.newImageRect("tree.png", 450, 300)
 	tree.x = 700
-	tree.y = 150
+	tree.y = 150 
 
 	local tree = display.newImageRect("tree.png", 270, 250)
 	tree.x = 200
