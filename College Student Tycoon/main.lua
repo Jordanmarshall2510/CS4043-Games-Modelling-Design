@@ -215,6 +215,8 @@ function initializeGameScreen()
 			background = display.newImageRect("background.png", 1920,1080)
 			background.x = display.contentCenterX
 			background.y = display.contentCenterY
+
+			grade.displayGrade()
 		end
 	end
 
