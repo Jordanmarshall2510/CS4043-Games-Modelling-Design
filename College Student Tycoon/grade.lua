@@ -1,30 +1,47 @@
-local grade = { }
 local timeSystem = require "timeSystem"
 local stats = require "stats"
 
-local endGrade = ""
+local grade = { }
+grade.endGrade = " "
 
-local function aGrade()
-	if ((timeSystem.day == 20) and ((stats.sleep and stats.hunger and stats.hygiene and stats.happiness and stats.intel)>= 90))
-		then endGrade = "A"
+function grade.aGrade()
+	if ((timeSystem.day >= 1) and ((stats.intel)>= 90))
+		then grade.endGrade = "A"
+	end
+	return grade.endGrade
 end
 
-local function bGrade()
-	if ((timeSystem.day == 20) and (90 >(stats.sleep and stats.hunger and stats.hygiene and stats.happiness and stats.intel)>= 70))
-		then endGrade = "B"
+function grade.bGrade()
+	if ((timeSystem.day >= 1) and (90 >(stats.intel)>= 70))
+		then grade.endGrade = "B"
+	end
+	return grade.endGrade
 end
 
-local function cGrade()
-	if ((timeSystem.day == 20) and (70 >(stats.sleep and stats.hunger and stats.hygiene and stats.happiness and stats.intel)>= 50))
-		then endGrade = "C"
+function grade.cGrade()
+	if ((timeSystem.day >= 1) and (70 >(stats.intel)>= 50))
+		then grade.endGrade = "C"
+	end
+	return grade.endGrade
 end
 
-local function dGrade()
-	if ((timeSystem.day == 20) and (50 >(stats.sleep and stats.hunger and stats.hygiene and stats.happiness and stats.intel)>= 30))
-		then endGrade = "D"
+function grade.dGrade()
+	if ((timeSystem.day >= 1) and (50 >(stats.intel)>= 30))
+		then grade.endGrade = "D"
+	end
+	return grade.endGrade
 end
 
-local function failGrade()
-	if ((timeSystem.day == 20) and ((stats.sleep and stats.hunger and stats.hygiene and stats.happiness and stats.intel)< 30))
-		then endGrade = "FAIL"
+function grade.failGrade()
+	if ((timeSystem.day >= 1) and ((stats.intel)< 30))
+		then grade.endGrade = "FAIL"
+	end
+	return grade.endGrade
 end
+
+function grade.display()
+	grade.gradeText = display.newText(grade.endGrade, 960, 770 , native.systemFont , 40 )
+	grade.gradeText:setFillColor( 1, 0, 0 )
+end
+
+return grade

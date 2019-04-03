@@ -7,6 +7,7 @@ local physics = require "physics"
 local events = require "events"
 local stats = require "stats" 
 local timeSystem = require "timeSystem"
+local grade = require "grade"
 
 physics.start( )
 physics.setGravity( 0, 0 )
@@ -224,7 +225,9 @@ function dies( event )
 			local background = display.newImageRect("background.png", 1920, 1080)
 			background.x = display.contentCenterX
 			background.y = display.contentCenterY
-			
+
+			grade.display()
+
 			--[[local textboxGreen = display.newImageRect("textboxGreen.png", 300, 100)
 			textboxGreen.x = 960
 			textboxGreen.y = 800
