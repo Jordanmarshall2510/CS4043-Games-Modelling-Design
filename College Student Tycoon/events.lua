@@ -4,42 +4,35 @@ local stats = require "stats"
 local timeSystem = require "timeSystem"
 local eventID = 1
 
---[[function events.generateRandomEvent() 
-	--eventID will be added as a random variable
-		if(eventID == 1) --Night out, for instance
-			then 
-			stats.happiness= stats.happiness + 70  
-			stats.money = stats.money - 20 -- I'll add some randomisation to how much you lose
-			stats.sleep = stats.sleep - 20
-			stats.hygeine = stats.hygeine -25 
-			--Always clear stats before new ones are displayed-- 
-			stats.refresh()
-		print(eventID)
-		end
-	end]]
-
 --Random events--
-local function nightOut()
+function grant()
+	if(timeSystem.day == 4) then
+		stats.money = stats.money + 500
+		stats.refresh()
+	end
+end
+
+function nightOut()
 	sleep = sleep - math.random(10, 70)
 	hunger = hunger - math.random(10, 40)
 	money = money - math.random(40, 200)
 end
 
-local function lostMoney()
+function lostMoney()
 	money = money - math.random(10,200)
 end
 
-local function skipLecture()
+function skipLecture()
 	sleep = sleep + math.random(5,50)
 	money = money - math.random(5,50)
 end
 
-local function workOvertime()
+function workOvertime()
 	sleep = sleep - math.random(5,70)
 	money = money + math.random(20,400)
 end
 
-local function extraStudy()
+function extraStudy()
 	happiness = happiness + math.random(10,80)
 	sleep = sleep - math.random(10,80)
 	hygeine = hygeine - math.random(10,50)
@@ -177,7 +170,5 @@ function moneySpent(event)
 		end
 	end
 end
-
-
 
 return events
