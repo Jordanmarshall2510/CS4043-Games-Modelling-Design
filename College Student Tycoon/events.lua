@@ -2,7 +2,6 @@
 local events = { } 
 local stats = require "stats"
 local timeSystem = require "timeSystem"
-local grade = require "grade"
 local eventID = 1
 
 --Random events--
