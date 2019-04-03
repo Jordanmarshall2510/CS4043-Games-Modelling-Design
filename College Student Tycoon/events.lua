@@ -172,30 +172,4 @@ function moneySpent(event)
 	end
 end
 
-function endGame()
-	if(stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <=0 or stats.intel <= 0) then
-		background = display.newImageRect("background.png", 1920,1080)
-		background.x = 960
-		background.y = 520
-
-		grade.displayGrade()
-	end
-end
-
---Player movement--
-function onTouch(event)
-	if(event.phase == "ended") then 
-		transition.to(student, {x=event.x, y=event.y})
-		print(event.x, event.y)
-	end
-end
-
---When play button is tapped, start the game--
-function loadGame(event)
-	if event.target.name == "playbutton" then
-		transition.to(titleScreenGroup,{time = 0, alpha=0, onComplete = initializeGameScreen});
-		playBtn:removeEventListener("tap", loadGame);
-	end
-end
-
 return events
