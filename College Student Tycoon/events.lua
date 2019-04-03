@@ -2,6 +2,7 @@
 local events = { } 
 local stats = require "stats"
 local timeSystem = require "timeSystem"
+local grade = require "grade"
 local eventID = 1
 
 --Random events--
@@ -176,6 +177,8 @@ function endGame()
 		background = display.newImageRect("background.png", 1920,1080)
 		background.x = 960
 		background.y = 520
+
+		grade.displayGrade()
 	end
 end
 
