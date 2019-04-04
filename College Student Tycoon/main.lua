@@ -34,7 +34,7 @@ function showTitleScreen()
 	titleScreenGroup:insert(playBtn)
 
 	--Make play button interactive--
-	playBtn:addEventListener("tap", loadGame)
+	playBtn:addEventListener("touch", loadGame)
 end
 
 --Runs the Main Function--
@@ -46,7 +46,7 @@ end
 function loadGame(event)
 	if event.target.name == "playbutton" then
 		transition.to(titleScreenGroup,{time = 0, alpha=0, onComplete = initializeGameScreen});
-		playBtn:removeEventListener("tap", loadGame);
+		playBtn:removeEventListener("touch", loadGame);
 	end
 end
 
@@ -60,38 +60,38 @@ function initializeGameScreen()
 	grass:toBack()
 
 	--Intiially display stats, use stats.refresh from now on--
-	stats.display()
+	stats.reset()
 	timeSystem.displayTime()
 
 	--Advances time when buildings are clicked on--
-	local function timeOnwards(event)
+	function timeOnwards(event)
 		if(event.phase == "ended") then
 			timeSystem.advanceTime(1)
 		end
 	end
 
 	--Stats Assets--
-	local bed = display.newImageRect("bed.png", 60, 40)
+	bed = display.newImageRect("bed.png", 60, 40)
 	bed.x = 1650
 	bed.y = 70
 
-	local food = display.newImageRect("food.png", 50, 50)
+	food = display.newImageRect("food.png", 50, 50)
 	food.x = 1640
 	food.y = 150
 
-	local happiness = display.newImageRect("happiness.png", 50, 45)
+	happiness = display.newImageRect("happiness.png", 50, 45)
 	happiness.x = 1610
 	happiness.y = 190
 
-	local hygiene = display.newImageRect("hygiene.png", 50, 40)
+	hygiene = display.newImageRect("hygiene.png", 50, 40)
 	hygiene.x = 1630
 	hygiene.y = 110
 
-	local intel = display.newImageRect("intel.png", 60, 45)
+	intel = display.newImageRect("intel.png", 60, 45)
 	intel.x = 1610
 	intel.y = 230
 
-	local money = display.newImageRect("money.png", 50, 40)
+	money = display.newImageRect("money.png", 50, 40)
 	money.x = 1630
 	money.y = 30
 
@@ -122,23 +122,23 @@ function initializeGameScreen()
 	restaurant.name = "restaurant"
 
 	--Buildings text--
-	local houseText = display.newText("House", 290, 100 , native.systemFont , 40 )
+	houseText = display.newText("House", 290, 100 , native.systemFont , 40 )
 	houseText:setFillColor( 0, 0, 0 )
 
-	local libraryText = display.newText("Library", 1200, 50 , native.systemFont , 40 )
+	libraryText = display.newText("Library", 1200, 50 , native.systemFont , 40 )
 	libraryText:setFillColor( 0, 0, 0 )
 
-	local barText = display.newText("The Horse Club", 1680, 400 , native.systemFont , 40 )
+	barText = display.newText("The Horse Club", 1680, 400 , native.systemFont , 40 )
 	barText:setFillColor( 0, 0, 0 )
 
-	local restaurantText = display.newText("Restaurant", 960, 770 , native.systemFont , 40 )
+	restaurantText = display.newText("Restaurant", 960, 770 , native.systemFont , 40 )
 	restaurantText:setFillColor( 0, 0, 0 )
 
-	local foundationBuildingText = display.newText("Foundation Building", 250, 730 , native.systemFont , 40 )
+	foundationBuildingText = display.newText("Foundation Building", 250, 730 , native.systemFont , 40 )
 	foundationBuildingText:setFillColor( 0, 0, 0 )
 
 	--Character--
-	local student = display.newImageRect("student.png", 150, 150)
+	student = display.newImageRect("student.png", 150, 150)
 	student.x = display.contentCenterX
 	student.y = display.contentCenterY
 	student.name = "student";
@@ -153,15 +153,15 @@ function initializeGameScreen()
 	Runtime:addEventListener("touch", onTouch)
 
 	--Trees--
-	local tree = display.newImageRect("tree.png", 400, 300)
+	tree = display.newImageRect("tree.png", 400, 300)
 	tree.x = 1550
 	tree.y = 850
 
-	local tree = display.newImageRect("tree.png", 450, 300)
+	tree = display.newImageRect("tree.png", 450, 300)
 	tree.x = 700
 	tree.y = 150
 
-	local tree = display.newImageRect("tree.png", 270, 250)
+	tree = display.newImageRect("tree.png", 270, 250)
 	tree.x = 200
 	tree.y = 500	
 
@@ -210,18 +210,65 @@ function initializeGameScreen()
 
 	local native = native.showAlert("Introduction", "You recieve a grant payment of €500 every 4 days.", {"OK"}, enterLibrary)
 
-	function endGame()
-		if(stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <=0 or stats.intel <= 0) then
-			background = display.newImageRect("background.png", 1920,1080)
-			background.x = display.contentCenterX
-			background.y = display.contentCenterY
+	Runtime:addEventListener("touch", endGame)	
 
+end
+
+function endGame(event)
+	if(stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <=0 or stats.intel <= 0 or timeSystem.day == 14 and timeSystem.time < 9) then
+		background = display.newImageRect("background.png", 1920,1080)
+		background.x = display.contentCenterX
+		background.y = display.contentCenterY
+
+		if(timeSystem.day < 14) then
+			grade.gradeText = display.newText("You dropped out.", 960, 650 , "Ariel Black" , 50 )
+			grade.gradeText:setFillColor( 1, 0, 0 )
+		end
+
+		if(timeSystem.day == 14) then
 			grade.displayGrade()
 		end
+
+		restart = display.newImageRect("restartButton.png", 300, 100)
+		restart.x = 960
+		restart.y = 800
+		restart.name = "restart"
+
+			
+		library:removeSelf()
+		bar:removeSelf()
+		restaurant:removeSelf()
+		foundationBuilding:removeSelf()
+		house:removeSelf()
+		student:removeSelf()
+			
+		stats.moneyText:removeSelf()
+		stats.hungerText:removeSelf()
+		stats.sleepText:removeSelf()
+		stats.hygieneText:removeSelf()
+		stats.happinessText:removeSelf() 
+		stats.intelText:removeSelf()
+
+		timeSystem.inGameClock:removeSelf()
+
+		libraryText:removeSelf()
+		barText:removeSelf()
+		restaurantText:removeSelf()
+		foundationBuildingText:removeSelf()
+		houseText:removeSelf()
+		
+
+		restart:addEventListener("touch", initializeGameScreen)
+		restart:addEventListener("touch", clearBackground)
 	end
+	
+	
+	function clearBackground()
+		background:removeSelf()
+		restart:removeSelf()
+		grade.gradeText:removeSelf()
 
-Runtime:addEventListener("touch", endGame)
-
+	end
 end
 
 --Run the game--
