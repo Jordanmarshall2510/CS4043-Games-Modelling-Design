@@ -12,7 +12,7 @@ function grant()
 	end
 end
 
-function nightOut()
+--[[function nightOut()
 	sleep = sleep - math.random(10, 70)
 	hunger = hunger - math.random(10, 40)
 	money = money - math.random(40, 200)
@@ -36,13 +36,13 @@ function extraStudy()
 	happiness = happiness + math.random(10,80)
 	sleep = sleep - math.random(10,80)
 	hygeine = hygeine - math.random(10,50)
-end
+end]]--
 
 --Events when the buildings are clicked on--
  function smarter(event) 
 	if(event.phase == "ended") then
 		if(stats.intel < 100) then
-			stats.intel = stats.intel + math.random(3, 10)
+			stats.intel = stats.intel + math.random(2, 7)
 			stats.refresh()
 		end
 		if(stats.intel > 100) then
@@ -55,7 +55,7 @@ end
 function dumber(event)
 	if(event.phase == "ended") then
 		if(stats.intel <= 100) then
-			stats.intel = stats.intel - math.random(3, 10)
+			stats.intel = stats.intel - math.random(2, 6)
 			stats.refresh()
 		end
 	end
@@ -65,7 +65,7 @@ end
  function moreSleep(event) 
 	if(event.phase == "ended") then
 		if(stats.sleep < 100) then
-			stats.sleep = stats.sleep + math.random(3, 10)
+			stats.sleep = stats.sleep + math.random(5, 16)
 			stats.refresh()
 		end
 		if(stats.sleep > 100) then
@@ -78,7 +78,7 @@ end
 function lessSleep(event)
 	if(event.phase == "ended") then
 		if(stats.sleep <= 100) then
-			stats.sleep = stats.sleep - math.random(3, 10)
+			stats.sleep = stats.sleep - math.random(5, 12)
 			stats.refresh()
 		end
 	end
@@ -88,7 +88,7 @@ end
 function shower(event)
 	if(event.phase == "ended") then
 		if(stats.hygiene < 100) then
-			stats.hygiene = stats.hygiene + math.random(3, 10)
+			stats.hygiene = stats.hygiene + math.random(5, 15)
 			stats.refresh()
 		end
 		if(stats.hygiene > 100) then
@@ -101,7 +101,7 @@ end
 function dirtier(event)
 	if(event.phase == "ended") then
 		if(stats.hygiene <= 100) then
-			stats.hygiene = stats.hygiene - math.random(3,10)
+			stats.hygiene = stats.hygiene - math.random(3,8)
 			stats.refresh()
 		end
 	end
@@ -124,7 +124,7 @@ end
 function sadder(event) 
 	if(event.phase == "ended") then
 		if(stats.happiness <= 100) then
-			stats.happiness = stats.happiness - math.random(3, 10)
+			stats.happiness = stats.happiness - math.random(2, 8)
 			stats.refresh()
 		end
 		if(stats.happiness < 0) then
@@ -138,7 +138,7 @@ end
  function eat(event) 
 	if(event.phase == "ended") then
 		if(stats.hunger < 100) then
-			stats.hunger = stats.hunger + math.random(3, 10)
+			stats.hunger = stats.hunger + math.random(8, 16)
 			stats.refresh()
 		end
 		if(stats.hunger > 100) then
@@ -151,7 +151,7 @@ end
 function hungrier(event)
 	if(event.phase == "ended") then
 		if(stats.hunger <= 100) then
-			stats.hunger = stats.hunger - math.random(3, 10)
+			stats.hunger = stats.hunger - math.random(4, 12)
 			stats.refresh()
 		end
 	end
@@ -161,7 +161,7 @@ end
 function moneySpent(event)
 	if(event.phase == "ended") then
 		if(stats.money > 0) then
-			stats.money = stats.money - math.random(20, 100)
+			stats.money = stats.money - math.random(5, 25)
 			stats.refresh()
 		end
 		if(stats.money < 0) then
