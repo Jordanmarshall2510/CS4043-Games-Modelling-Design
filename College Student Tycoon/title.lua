@@ -44,8 +44,19 @@ function scene:show( event )
 
 		--Make play button interactive--
 		playBtn:addEventListener("touch", loadGame)
+
+		exit = display.newImageRect( sceneGroup, "exitButton.png", 300, 110)
+		exit.x = 960
+		exit.y = 850
+		exit.name = "exit"
+
+		exit:addEventListener("touch", exitGame)
     end
 	
+end
+
+function exitGame(event)
+	os.exit()
 end
  
 function loadGame(event)
