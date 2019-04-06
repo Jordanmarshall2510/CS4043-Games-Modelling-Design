@@ -33,13 +33,24 @@ function gameOver:show( event )
 		
 		local restart = display.newImageRect( sceneGroup, "restartButton.png", 300, 100)
 		restart.x = 960
-		restart.y = 800
+		restart.y = 770
 		restart.name = "restart"
 
 		restart:addEventListener( "touch", restartGame )
+
+		local exit = display.newImageRect( sceneGroup, "exitButton.png", 300, 100)
+		exit.x = 960
+		exit.y = 920
+		exit.name = "exit"
+
+		exit:addEventListener("touch", exitGame)
 		
     end
 	
+end
+
+function exitGame(event)
+	os.exit()
 end
 
 function gameOver:destroy ( event ) 	
