@@ -38,7 +38,7 @@ function gameOver:show( event )
 
 		restart:addEventListener( "touch", restartGame )
 
-		local exit = display.newImageRect( sceneGroup, "exitButton.png", 300, 100)
+		local exit = display.newImageRect( sceneGroup, "exitButton.png", 250, 75)
 		exit.x = 960
 		exit.y = 920
 		exit.name = "exit"
