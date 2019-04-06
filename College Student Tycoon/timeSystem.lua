@@ -1,17 +1,15 @@
 local timeSystem = { } 
 --"time" is already used in Lua
 
-timeSystem.day = 1 
-timeSystem.time = 9 -- initial value, game starts at 9 AM
+function timeSystem.defaultValues()
+	timeSystem.day = 1 
+	timeSystem.time = 9 -- initial value, game starts at 9 AM
+end 
 
-function timeSystem.displayTime() 
+function timeSystem.text() 
 	timeSystem.inGameClock = display.newText("Day "..timeSystem.day.." - "..timeSystem.time ..":00" , 960, 20, native.systemFont , 40 )
 	timeSystem.inGameClock:setFillColor( 0, 0, 0 )
-
-end
-
-function timeSystem.clear() 
-	timeSystem.inGameClock:removeSelf()
+	timeSystem.inGameClock.alpha = 0
 end
 
 function timeSystem.advanceTime(n) 
@@ -22,11 +20,17 @@ function timeSystem.advanceTime(n)
 		timeSystem.day = timeSystem.day + 1
 	end
 
-timeSystem.clear()	
-timeSystem.displayTime() 
-
+timeSystem.inGameClock:removeSelf()
+timeSystem.text() 
+timeSystem.inGameClock.alpha = 1
 end
 
+function timeSystem.hide() 
+	timeSystem.inGameClock.alpha = 0 
+end 
 
+function timeSystem.unhide() 
+	timeSystem.inGameClock.alpha = 1
+end 
 
 return timeSystem

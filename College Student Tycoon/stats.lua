@@ -1,7 +1,7 @@
 -- Stats --
 local stats = { } 
 
-function stats.reset()
+function stats.defaultValues()
 	--Money-- 
 	stats.money = 500
 	--Sleep--
@@ -14,66 +14,46 @@ function stats.reset()
 	stats.happiness = math.random(70,100)
 	--Intelligence--
 	stats.intel = math.random(70,100)
-	--Display everything, to be called in the main file-- 
-
-		stats.moneyText = display.newText("Money " .. stats.money, 1750, 30, native.systemFont , 40 )
-		stats.moneyText:setFillColor( 0, 0, 0 )
-
-		stats.sleepText = display.newText("Sleep " .. stats.sleep, 1750, 70, native.systemFont , 40 )
-		stats.sleepText:setFillColor( 0, 0, 0 )
-
-		stats.hygieneText = display.newText("Hygiene " .. stats.hygiene, 1750, 110, native.systemFont , 40 )
-		stats.hygieneText:setFillColor( 0, 0, 0 )
-
-		stats.hungerText = display.newText("Hunger " .. stats.hunger, 1750, 150, native.systemFont , 40 )
-		stats.hungerText:setFillColor( 0, 0, 0 )
-
-		stats.happinessText = display.newText("Happiness " .. stats.happiness, 1750, 190, native.systemFont , 40 )
-		stats.happinessText:setFillColor( 0, 0, 0 )
-	
-		stats.intelText = display.newText("Intelligence " .. stats.intel, 1750, 230, native.systemFont , 40 )
-		stats.intelText:setFillColor( 0, 0, 0 )	
-	
 end
 
 --Display everything, to be called in the main file-- 
 
-function stats.display()
+function stats.text()
+	stats.group = display.newGroup()
 	
-	stats.moneyText = display.newText("Money " .. stats.money, 1750, 30, native.systemFont , 40 )
+	stats.moneyText = display.newText( stats.group, "Money " .. stats.money, 1750, 30, native.systemFont , 40 )
 	stats.moneyText:setFillColor( 0, 0, 0 )
-
-	stats.sleepText = display.newText("Sleep " .. stats.sleep, 1750, 70, native.systemFont , 40 )
+	
+	stats.sleepText = display.newText( stats.group, "Sleep " .. stats.sleep, 1750, 70, native.systemFont , 40 )
 	stats.sleepText:setFillColor( 0, 0, 0 )
 
-	stats.hygieneText = display.newText("Hygiene " .. stats.hygiene, 1750, 110, native.systemFont , 40 )
+	stats.hygieneText = display.newText( stats.group, "Hygiene " .. stats.hygiene, 1750, 110, native.systemFont , 40 )
 	stats.hygieneText:setFillColor( 0, 0, 0 )
 
-	stats.hungerText = display.newText("Hunger " .. stats.hunger, 1750, 150, native.systemFont , 40 )
+	stats.hungerText = display.newText( stats.group, "Hunger " .. stats.hunger, 1750, 150, native.systemFont , 40 )
 	stats.hungerText:setFillColor( 0, 0, 0 )
 
-	stats.happinessText = display.newText("Happiness " .. stats.happiness, 1750, 190, native.systemFont , 40 )
+	stats.happinessText = display.newText( stats.group, "Happiness " .. stats.happiness, 1750, 190, native.systemFont , 40 )
 	stats.happinessText:setFillColor( 0, 0, 0 )
 	
-	stats.intelText = display.newText("Intelligence " .. stats.intel, 1750, 230, native.systemFont , 40 )
+	stats.intelText = display.newText( stats.group, "Intelligence " .. stats.intel, 1750, 230, native.systemFont , 40 )
 	stats.intelText:setFillColor( 0, 0, 0 )
-
+	
+	stats.group.alpha = 0 
 end
 
-function stats.clear() 
-	stats.moneyText:removeSelf()
-	stats.hungerText:removeSelf()
-	stats.sleepText:removeSelf()
-	stats.hygieneText:removeSelf()
-	stats.happinessText:removeSelf() 
-	stats.intelText:removeSelf()
-end
+function stats.hide() 
+	stats.group.alpha = 0 
+end 
 
+function stats.unhide() 
+	stats.group.alpha = 1
+end 
 
-
-function stats.refresh()
-	stats.clear()
-	stats.display()
-end
+function stats.refresh() 
+	stats.group:removeSelf() 
+	stats.text() 
+	stats.unhide() 
+end 
 
 return stats 
