@@ -22,7 +22,7 @@ function assets.text()
 	barText = display.newText( "The Horse Club", 1680, 400 , native.systemFont , 40 )
 	barText:setFillColor( 0, 0, 0 )
 
-	restaurantText = display.newText( "Restaurant", 960, 770 , native.systemFont , 40 )
+	restaurantText = display.newText( "Restaurant", 1550, 770 , native.systemFont , 40 )
 	restaurantText:setFillColor( 0, 0, 0 )
 
 	foundationBuildingText = display.newText( "Foundation Building", 250, 730 , native.systemFont , 40 )
