@@ -74,7 +74,7 @@ function game:show( event )
 		bar.name = "bar"
 
 		restaurant = display.newImageRect( sceneGroup, "restaurant.png", 250, 250)
-		restaurant.x = 960
+		restaurant.x = 1550
 		restaurant.y = 900
 		restaurant.name = "restaurant" 
 		
@@ -86,8 +86,8 @@ function game:show( event )
 		
 		--Trees--
 		tree1 = display.newImageRect( sceneGroup, "tree.png", 400, 300)
-		tree1.x = 1550
-		tree1.y = 850
+		tree1.x = 960
+		tree1.y = 900
 
 		tree2 = display.newImageRect( sceneGroup, "tree.png", 450, 300)
 		tree2.x = 700
@@ -159,6 +159,7 @@ function game:show( event )
 function game:destroy( event )
  
     local sceneGroup = self.view
+    timeSystem.defaultValues()
     timeSystem.hide() 
 	stats.defaultValues()
 	stats.hide()
