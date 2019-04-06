@@ -42,16 +42,14 @@ function gameOver:show( event )
 	
 end
 
-function gameOver:destroy ( event ) 
-		
-		local sceneGroup = self.view 
+function gameOver:destroy ( event ) 	
+	local sceneGroup = self.view 
 end 
-		
-
 
 function restartGame(event) 
 		if event.target.name == "restart" then 
-			os.exit() 
+			composer.removeScene( "gameOver" ) 
+			composer.gotoScene( "game" ) 
 		end 
 end  
  

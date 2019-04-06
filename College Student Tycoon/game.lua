@@ -2,6 +2,7 @@ local composer = require( "composer" )
 local stats = require ( "stats" ) 
 local timeSystem = require ( "timeSystem" ) 
 local grade = require ( "grade" ) 
+local assets = require ( "assets" ) 
 
 local game = composer.newScene() 
 
@@ -11,72 +12,13 @@ function game:show( event )
     local phase = event.phase
 	
     if ( phase == "will" ) then
-		
-		grass = display.newImageRect( sceneGroup, "grass.png", 2000, 1200);
-		grass.x = 960
-		grass.y = 540
-		grass:toBack()
-		
-		foundationBuilding = display.newImageRect( sceneGroup, "foundationBuilding.png", 250, 250)
-		foundationBuilding.x = 250
-		foundationBuilding.y = 850
-		foundationBuilding.name = "foundationBuilding"
-
-		house = display.newImageRect( sceneGroup, "house.png", 250, 250)
-		house.x = 330
-		house.y = 200
-		house.name = "house"
-
-		library = display.newImageRect( sceneGroup, "library.png", 250, 250)
-		library.x = 1200
-		library.y = 200
-		library.name = "library"
-
-		bar = display.newImageRect( sceneGroup, "bar.png", 250, 250)
-		bar.x = 1700
-		bar.y = 550
-		bar.name = "bar"
-
-		restaurant = display.newImageRect( sceneGroup, "restaurant.png", 250, 250)
-		restaurant.x = 960
-		restaurant.y = 900
-		restaurant.name = "restaurant" 
-		
-		--Trees--
-		tree = display.newImageRect( sceneGroup, "tree.png", 400, 300)
-		tree.x = 1550
-		tree.y = 850
-
-		tree = display.newImageRect( sceneGroup, "tree.png", 450, 300)
-		tree.x = 700
-		tree.y = 150
-
-		tree = display.newImageRect( sceneGroup, "tree.png", 270, 250)
-		tree.x = 200
-		tree.y = 500	
+		assets.display()
 	
     elseif ( phase == "did" ) then
 		
 		stats.unhide() 
 		timeSystem.unhide() 
-			
-		--Buildings text-- 
-		houseText = display.newText( sceneGroup, "House", 290, 100 , native.systemFont , 40 )
-		houseText:setFillColor( 0, 0, 0 )
-
-		libraryText = display.newText( sceneGroup, "Library", 1200, 50 , native.systemFont , 40 )
-		libraryText:setFillColor( 0, 0, 0 )
-
-		barText = display.newText( sceneGroup, "The Horse Club", 1680, 400 , native.systemFont , 40 )
-		barText:setFillColor( 0, 0, 0 )
-
-		restaurantText = display.newText( sceneGroup, "Restaurant", 960, 770 , native.systemFont , 40 )
-		restaurantText:setFillColor( 0, 0, 0 )
-
-		foundationBuildingText = display.newText( sceneGroup, "Foundation Building", 250, 730 , native.systemFont , 40 )
-		foundationBuildingText:setFillColor( 0, 0, 0 )
-		
-		--Intiially display stats, use stats.refresh from now on--
+		assets.text() 
 
 		--Advances time when buildings are clicked on--
 		function timeOnwards(event)
@@ -180,7 +122,9 @@ function game:destroy( event )
  
     local sceneGroup = self.view
     timeSystem.hide() 
-	stats.hide() 
+	stats.hide()
+	stats.defaultValues()
+	assets.clear() 
  
 end
 
