@@ -16,6 +16,7 @@ function game:show( event )
 	
     elseif ( phase == "did" ) then
 		
+		stats.defaultValues()
 		stats.unhide() 
 		timeSystem.unhide() 
 		assets.text() 
@@ -52,12 +53,49 @@ function game:show( event )
 		money.x = 1630
 		money.y = 30 
 
+		foundationBuilding = display.newImageRect( sceneGroup, "foundationBuilding.png", 250, 250)
+		foundationBuilding.x = 250
+		foundationBuilding.y = 850
+		foundationBuilding.name = "foundationBuilding"
+
+		house = display.newImageRect( sceneGroup, "house.png", 250, 250)
+		house.x = 330
+		house.y = 200
+		house.name = "house"
+
+		library = display.newImageRect( sceneGroup, "library.png", 250, 250)
+		library.x = 1200
+		library.y = 200
+		library.name = "library"
+
+		bar = display.newImageRect( sceneGroup, "bar.png", 250, 250)
+		bar.x = 1700
+		bar.y = 550
+		bar.name = "bar"
+
+		restaurant = display.newImageRect( sceneGroup, "restaurant.png", 250, 250)
+		restaurant.x = 960
+		restaurant.y = 900
+		restaurant.name = "restaurant" 
 		
 		--Character--
 		student = display.newImageRect( sceneGroup, "student.png", 150, 150)
 		student.x = display.contentCenterX
 		student.y = display.contentCenterY
 		student.name = "student";
+		
+		--Trees--
+		tree1 = display.newImageRect( sceneGroup, "tree.png", 400, 300)
+		tree1.x = 1550
+		tree1.y = 850
+
+		tree2 = display.newImageRect( sceneGroup, "tree.png", 450, 300)
+		tree2.x = 700
+		tree2.y = 150
+
+		tree3 = display.newImageRect( sceneGroup, "tree.png", 270, 250)
+		tree3.x = 200
+		tree3.y = 500	
 
 		--Player movement--
 		function onTouch(event)
@@ -111,7 +149,7 @@ function game:show( event )
 		restaurant:addEventListener("touch", grant)
 		foundationBuilding:addEventListener("touch", grant)
 
-		local native = native.showAlert("Introduction", "You recieve a grant payment of €500 every 4 days.", {"OK"}, enterLibrary)
+		--local native = native.showAlert("Introduction", "You recieve a grant payment of €500 every 4 days.", {"OK"}, enterLibrary)
 		
 		Runtime:addEventListener("touch", endGame)	
 		
@@ -122,8 +160,8 @@ function game:destroy( event )
  
     local sceneGroup = self.view
     timeSystem.hide() 
-	stats.hide()
 	stats.defaultValues()
+	stats.hide()
 	assets.clear() 
  
 end
