@@ -12,22 +12,20 @@ function assets.display()
 end 
 
 function assets.text() 
-	
-	houseText = display.newText( "House", 290, 100 , native.systemFont , 40 )
-	houseText:setFillColor( 0, 0, 0 )
+	houseText = display.newText("House", 290, 100, native.systemFont, 40)
+	houseText:setFillColor(0, 0, 0)
 
-	libraryText = display.newText( "Library", 1200, 50 , native.systemFont , 40 )
-	libraryText:setFillColor( 0, 0, 0 )
+	libraryText = display.newText("Library", 1200, 50, native.systemFont, 40)
+	libraryText:setFillColor(0, 0, 0)
 
-	barText = display.newText( "The Horse Club", 1680, 400 , native.systemFont , 40 )
-	barText:setFillColor( 0, 0, 0 )
+	barText = display.newText("The Horse Club", 1680, 400, native.systemFont, 40)
+	barText:setFillColor(0, 0, 0)
 
-	restaurantText = display.newText( "Restaurant", 1550, 770 , native.systemFont , 40 )
-	restaurantText:setFillColor( 0, 0, 0 )
+	restaurantText = display.newText("Restaurant", 1550, 770, native.systemFont, 40)
+	restaurantText:setFillColor(0, 0, 0)
 
-	foundationBuildingText = display.newText( "Foundation Building", 250, 730 , native.systemFont , 40 )
-	foundationBuildingText:setFillColor( 0, 0, 0 )
-	
+	foundationBuildingText = display.newText("Foundation Building", 250, 730, native.systemFont, 40)
+	foundationBuildingText:setFillColor(0, 0, 0)
 end 
 
 function assets.clear() 
@@ -47,6 +45,7 @@ function assets.clear()
 	barText:removeSelf()
 	restaurantText:removeSelf()
 	foundationBuildingText:removeSelf()
+	exit:removeSelf()
 end 
 
 return assets 
