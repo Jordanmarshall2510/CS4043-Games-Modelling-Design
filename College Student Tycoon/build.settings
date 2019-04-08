@@ -4,20 +4,17 @@
 --
 
 settings =
+
 {
 	win32 =
     {
-     	preferenceStorage = "sqlite"
+     	preferenceStorage = "sqlite",
      	singleInstance = true,
     }
 
     window =
     {
-    	defaultMode = "fullscreen"
-    	suspendWhenMinimized = true,
-    	
-    }
-
-
- 	
+    	defaultMode = "fullscreen",
+    	suspendWhenMinimized = true,	
+    }	
 }
