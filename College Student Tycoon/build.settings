@@ -10,7 +10,7 @@ settings =
     {
      	preferenceStorage = "sqlite",
      	singleInstance = true,
-    }
+    },
 
     window =
     {
