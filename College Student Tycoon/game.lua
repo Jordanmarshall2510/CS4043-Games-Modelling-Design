@@ -102,12 +102,12 @@ function game:show(event)
 		tree3.y = 500	
 
 		--Exit button--
-		exit = display.newImageRect(sceneGroup, "exitButton.png", 100, 50)
-		exit.x = 100
-		exit.y = 1030
-		exit.name = "exit"
+		exitButton = display.newImageRect(sceneGroup, "exitButton.png", 100, 50)
+		exitButton.x = 100
+		exitButton.y = 1030
+		exitButton.name = "exit"
 
-		exit:addEventListener("touch", exitGame)
+		exitButton:addEventListener("touch", exitGame)
 
 		--Player movement--
 		function onTouch(event)

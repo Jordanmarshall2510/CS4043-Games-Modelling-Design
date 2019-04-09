@@ -45,7 +45,7 @@ function assets.clear()
 	barText:removeSelf()
 	restaurantText:removeSelf()
 	foundationBuildingText:removeSelf()
-	exit:removeSelf()
+	exitButton:removeSelf()
 end 
 
 return assets 

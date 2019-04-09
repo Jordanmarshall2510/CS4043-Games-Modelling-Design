@@ -43,23 +43,24 @@ function scene:show( event )
 		playBtn.name = "playbutton"
 
 		--Make play button interactive--
-		playBtn:addEventListener("touch", loadGame)
+		playBtn:addEventListener("touch", instructions)
 
-		exit = display.newImageRect( sceneGroup, "exitButton.png", 300, 110)
-		exit.x = 960
-		exit.y = 850
-		exit.name = "exit"
+		exitButton = display.newImageRect( sceneGroup, "exitButton.png", 300, 110)
+		exitButton.x = 960
+		exitButton.y = 850
+		exitButton.name = "exit"
 
-		exit:addEventListener("touch", exitGame)
+		exitButton:addEventListener("touch", exitGame)
     end
 	
 end
 
 function exitGame(event)
-	os.exit()
+	native.requestExit()
 end
+	
  
-function loadGame(event)
+function instructions(event)
 		if event.target.name == "playbutton" then
 			composer.removeScene( "splash" )
 			composer.removeScene( "title" )

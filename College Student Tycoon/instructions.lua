@@ -11,10 +11,18 @@ function instructions:show( event )
 	display.newImage( sceneGroup, "instructions.png", display.contentCenterX, display.contentCenterY , native.systemFont , 60 )
 
 	elseif ( phase == "did" ) then 
-	composer.removeScene( "instructions" ) 
-	composer.gotoScene( "game", {effect = "fromRight", time = 20000} )
+	playButton = display.newImageRect( sceneGroup, "playButton.png", 200, 75)
+	playButton.x = 1700 
+	playButton.y = 1000
+	playButton.name = "play" 
+	
+	playButton:addEventListener("touch", startGame)
 	end
-
+end
+	
+function startGame(event)
+	composer.gotoScene( "game", {effect = "fade", time = 700} )
+	playButton:removeEventListener("touch", startGame)
 end
 
 instructions:addEventListener( "create", instructions )
