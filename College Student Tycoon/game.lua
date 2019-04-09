@@ -8,6 +8,9 @@ local assets = require ("assets")
 
 local game = composer.newScene() 
 
+local backgroundMusic = audio.loadStream("music.mp3")
+local backgroundMusicChannel = audio.play( backgroundMusic, { channel=1, loops=-1, fadein=5000 } )
+
 function game:show(event)
  
     local sceneGroup = self.view
@@ -158,8 +161,6 @@ function game:show(event)
 		bar:addEventListener("touch", grant)
 		restaurant:addEventListener("touch", grant)
 		foundationBuilding:addEventListener("touch", grant)
-
-		local native = native.showAlert("Introduction", "You recieve a grant payment of €500 every 4 days.", {"OK"}, enterLibrary)
 		
 		Runtime:addEventListener("touch", endGame)	
 		
