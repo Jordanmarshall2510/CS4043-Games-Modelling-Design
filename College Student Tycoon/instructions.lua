@@ -1,4 +1,4 @@
-local composer  = require ("composer")
+--[[local composer  = require ("composer")
 local title = require ("title")
 local instructions = composer.newscene()
 
@@ -21,4 +21,4 @@ splash:addEventListener( "show", instructions )
 splash:addEventListener( "hide", instructions )
 splash:addEventListener( "destroy", instructions )
 
-return instructions 
+return instructions--]]
