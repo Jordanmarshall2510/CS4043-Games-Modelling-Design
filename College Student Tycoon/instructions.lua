@@ -1,6 +1,7 @@
---[[local composer  = require ("composer")
-local title = require ("title")
-local instructions = composer.newscene()
+local composer = require( "composer" )
+local game = require("game")
+ 
+local instructions = composer.newScene()
 
 function instructions:show( event )
     local sceneGroup = self.view
@@ -11,14 +12,14 @@ function instructions:show( event )
 
 	elseif ( phase == "did" ) then 
 	composer.removeScene( "instructions" ) 
-	composer.gotoScene( "title", {effect = "fade", time = 5000} )
+	composer.gotoScene( "game", {effect = "fromRight", time = 20000} )
 	end
 
 end
 
-splash:addEventListener( "create", instructions )
-splash:addEventListener( "show", instructions )
-splash:addEventListener( "hide", instructions )
-splash:addEventListener( "destroy", instructions )
+instructions:addEventListener( "create", instructions )
+instructions:addEventListener( "show", instructions )
+instructions:addEventListener( "hide", instructions )
+instructions:addEventListener( "destroy", instructions )
 
-return instructions--]]
+return instructions 

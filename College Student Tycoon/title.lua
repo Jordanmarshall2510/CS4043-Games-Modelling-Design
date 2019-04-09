@@ -63,7 +63,7 @@ function loadGame(event)
 		if event.target.name == "playbutton" then
 			composer.removeScene( "splash" )
 			composer.removeScene( "title" )
-			composer.gotoScene( "game", { effect = "fade", time = 1000 } ) 
+			composer.gotoScene( "instructions", { effect = "fade", time = 1000 } ) 
 		end 
 end 
  

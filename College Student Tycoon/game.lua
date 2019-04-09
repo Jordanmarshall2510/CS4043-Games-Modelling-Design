@@ -103,7 +103,7 @@ function game:show(event)
 
 		--Exit button--
 		exit = display.newImageRect(sceneGroup, "exitButton.png", 100, 50)
-		exit.x = 1850
+		exit.x = 100
 		exit.y = 1030
 		exit.name = "exit"
 
