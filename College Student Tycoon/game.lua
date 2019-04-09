@@ -149,11 +149,13 @@ function game:show(event)
 		restaurant:addEventListener("touch", lessSleep)
 		restaurant:addEventListener("touch", eat)
 		restaurant:addEventListener("touch", happier)
+		restaurant:addEventListener("touch", dirtier)
 
 		foundationBuilding:addEventListener("touch", lessSleep)
 		foundationBuilding:addEventListener("touch", hungrier)
 		foundationBuilding:addEventListener("touch", sadder)
 		foundationBuilding:addEventListener("touch", smarter)
+		foundationBuilding:addEventListener("touch", dirtier)
 
 		--Grant Payment--
 		library:addEventListener("touch", grant)
