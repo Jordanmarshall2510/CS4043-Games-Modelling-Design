@@ -12,32 +12,6 @@ function grant()
 	end
 end
 
---[[function nightOut()
-	sleep = sleep - math.random(10, 70)
-	hunger = hunger - math.random(10, 40)
-	money = money - math.random(40, 200)
-end
-
-function lostMoney()
-	money = money - math.random(10,200)
-end
-
-function skipLecture()
-	sleep = sleep + math.random(5,50)
-	money = money - math.random(5,50)
-end
-
-function workOvertime()
-	sleep = sleep - math.random(5,70)
-	money = money + math.random(20,400)
-end
-
-function extraStudy()
-	happiness = happiness + math.random(10,80)
-	sleep = sleep - math.random(10,80)
-	hygeine = hygeine - math.random(10,50)
-end]]--
-
 --Events when the buildings are clicked on--
  function smarter(event) 
 	if(event.phase == "ended") then
