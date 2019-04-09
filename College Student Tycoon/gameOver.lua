@@ -47,7 +47,7 @@ function gameOver:show(event)
 end
 
 function exitGame(event)
-	os.exit()
+	native.requestExit()
 end
 
 function gameOver:destroy (event) 	

@@ -33,27 +33,27 @@ function game:show(event)
 
 		--Stats Assets--
 		bed = display.newImageRect (sceneGroup, "bed.png", 50, 55)
-		bed.x = 1650
+		bed.x = 1640
 		bed.y = 70
 
 		food = display.newImageRect(sceneGroup, "food.png", 50, 50)
-		food.x = 1640
+		food.x = 1630
 		food.y = 150
 
 		happiness = display.newImageRect(sceneGroup, "happiness.png", 50, 45)
-		happiness.x = 1610
+		happiness.x = 1600
 		happiness.y = 190
 
 		hygiene = display.newImageRect(sceneGroup, "hygiene.png", 50, 40)
-		hygiene.x = 1630
+		hygiene.x = 1620
 		hygiene.y = 110
 
 		intel = display.newImageRect(sceneGroup, "intel.png", 60, 45)
-		intel.x = 1610
+		intel.x = 1600
 		intel.y = 230
 
 		money = display.newImageRect(sceneGroup, "money.png", 50, 40)
-		money.x = 1630
+		money.x = 1620
 		money.y = 30 
 
 		--Assets--
