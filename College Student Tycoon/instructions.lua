@@ -11,7 +11,7 @@ function instructions:show(event)
 		display.newImage( sceneGroup, "instructions.png", display.contentCenterX, display.contentCenterY)
 
 	elseif (phase == "did") then 
-		nextButton = display.newImageRect( sceneGroup, "nextButton.png", 200, 75)
+		nextButton = display.newImageRect( sceneGroup, "playButton.png", 200, 75)
 		nextButton.x = 1700 
 		nextButton.y = 1000
 	
