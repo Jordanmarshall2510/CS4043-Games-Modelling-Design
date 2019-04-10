@@ -170,7 +170,6 @@ function game:show(event)
 	end
 	
 function game:destroy(event)
- 
     local sceneGroup = self.view
     timeSystem.defaultValues()
     timeSystem.hide() 
@@ -182,7 +181,7 @@ end
 function endGame(event) 
 	if(stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <= 0 or stats.intel <= 0 or timeSystem.day == 14) then
 		composer.removeScene("game") 
-		composer.gotoScene("gameOver", {effect = "fromRight", time = 500}) 
+		composer.gotoScene("gameOver", {effect = "fade", time = 500}) 
 	end 
 end 
 
