@@ -4,19 +4,20 @@ local stats = require "stats"
 local timeSystem = require "timeSystem"
 local eventID = 1
 
---Random events--
-function grant()
-	if(timeSystem.day == 4 and timeSystem.time == 9 or timeSystem.day == 8 and timeSystem.time == 9 or timeSystem.day == 12 and timeSystem.time == 9) then
-		stats.money = stats.money + 250
-		stats.refresh()
+function grant(event)  
+	if(event.phase == "ended") then
+		if (timeSystem.day == 4 or timeSystem.day == 8 or timeSystem.day == 12) and timeSystem.time == 10 then 
+			stats.money = stats.money + 500
+			stats.refresh()
+		end
 	end
-end
+end 
 
 --Events when the buildings are clicked on--
  function smarter(event) 
 	if(event.phase == "ended") then
 		if(stats.intel < 100) then
-			stats.intel = stats.intel + math.random(2, 7)
+			stats.intel = stats.intel + math.random(3, 5)
 			stats.refresh()
 		end
 		if(stats.intel > 100) then
@@ -29,7 +30,7 @@ end
 function dumber(event)
 	if(event.phase == "ended") then
 		if(stats.intel <= 100) then
-			stats.intel = stats.intel - math.random(2, 5)
+			stats.intel = stats.intel - math.random(1, 3)
 			stats.refresh()
 		end
 	end
@@ -39,7 +40,7 @@ end
  function moreSleep(event) 
 	if(event.phase == "ended") then
 		if(stats.sleep < 100) then
-			stats.sleep = stats.sleep + math.random(5, 16)
+			stats.sleep = stats.sleep + math.random(10, 20)
 			stats.refresh()
 		end
 		if(stats.sleep > 100) then
@@ -83,9 +84,15 @@ end
 
 
  function happier(event) 
+	local joy = 0 
+	if event.target.name == "bar" then 
+		joy = math.random(20, 50) 
+		else 
+		joy = math.random(5, 10) 
+	end
 	if(event.phase == "ended") then
 		if(stats.happiness < 100) then
-			stats.happiness = stats.happiness + math.random(3, 10)
+			stats.happiness = stats.happiness + joy
 			stats.refresh()
 		end
 		if(stats.happiness > 100) then
@@ -96,9 +103,15 @@ end
 end
 
 function sadder(event) 
+	local sadness = 0 
+	if event.target.name == "library" then 
+		sadness = math.random(10, 20) 
+		else 
+		sadness = math.random(5, 10) 
+	end
 	if(event.phase == "ended") then
 		if(stats.happiness <= 100) then
-			stats.happiness = stats.happiness - math.random(2, 8)
+			stats.happiness = stats.happiness - sadness 
 			stats.refresh()
 		end
 		if(stats.happiness < 0) then
@@ -112,7 +125,7 @@ end
  function eat(event) 
 	if(event.phase == "ended") then
 		if(stats.hunger < 100) then
-			stats.hunger = stats.hunger + math.random(8, 16)
+			stats.hunger = stats.hunger + math.random(25, 30)
 			stats.refresh()
 		end
 		if(stats.hunger > 100) then
@@ -125,7 +138,7 @@ end
 function hungrier(event)
 	if(event.phase == "ended") then
 		if(stats.hunger <= 100) then
-			stats.hunger = stats.hunger - math.random(4, 10)
+			stats.hunger = stats.hunger - math.random(5, 10)
 			stats.refresh()
 		end
 	end
@@ -133,9 +146,15 @@ end
 
 
 function moneySpent(event)
+	local bill = 0
+	if event.target.name == "bar" then
+		bill = math.random(15, 50)
+		else
+		bill = math.random(5, 15)
+	end
 	if(event.phase == "ended") then
 		if(stats.money > 0) then
-			stats.money = stats.money - math.random(5, 25)
+			stats.money = stats.money - bill
 			stats.refresh()
 		end
 		if(stats.money < 0) then

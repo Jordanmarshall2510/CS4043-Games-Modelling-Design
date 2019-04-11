@@ -135,11 +135,11 @@ function game:show(event)
 		house:addEventListener("touch", moreSleep)
 		house:addEventListener("touch", shower)
 		house:addEventListener("touch", hungrier)
-		house:addEventListener("touch", sadder)
 		house:addEventListener("touch", dumber)
 
 		bar:addEventListener("touch", moneySpent)
 		bar:addEventListener("touch", lessSleep)
+		bar:addEventListener("touch", eat)
 		bar:addEventListener("touch", dirtier)
 		bar:addEventListener("touch", hungrier)
 		bar:addEventListener("touch", happier)
@@ -150,6 +150,7 @@ function game:show(event)
 		restaurant:addEventListener("touch", eat)
 		restaurant:addEventListener("touch", happier)
 		restaurant:addEventListener("touch", dirtier)
+		restaurant:addEventListener("touch", dumber)
 
 		foundationBuilding:addEventListener("touch", lessSleep)
 		foundationBuilding:addEventListener("touch", hungrier)
@@ -179,7 +180,7 @@ function game:destroy(event)
 end
 
 function endGame(event) 
-	if(stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <= 0 or stats.intel <= 0 or timeSystem.day == 14) then
+	if(stats.money <= 0 or stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <= 0 or stats.intel <= 0 or timeSystem.day == 14) then
 		composer.removeScene("game") 
 		composer.gotoScene("gameOver", {effect = "fade", time = 500}) 
 	end 

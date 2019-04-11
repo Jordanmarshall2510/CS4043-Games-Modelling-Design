@@ -5,7 +5,7 @@ function stats.defaultValues()
 	--Money-- 
 	stats.money = 500
 	--Sleep--
-	stats.sleep = math.random(70,100)
+	stats.sleep = 100
 	--Hygeine--
 	stats.hygiene = math.random(70,100) 
 	--Hunger-- 
@@ -13,7 +13,7 @@ function stats.defaultValues()
 	--Happiness-- 
 	stats.happiness = math.random(70,100)
 	--Intelligence--
-	stats.intel = math.random(70,100)
+	stats.intel = 50
 end
 
 --Display everything, to be called in the main file-- 
