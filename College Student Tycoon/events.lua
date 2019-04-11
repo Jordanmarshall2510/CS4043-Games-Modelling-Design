@@ -29,7 +29,7 @@ end
 function dumber(event)
 	if(event.phase == "ended") then
 		if(stats.intel <= 100) then
-			stats.intel = stats.intel - math.random(2, 6)
+			stats.intel = stats.intel - math.random(2, 5)
 			stats.refresh()
 		end
 	end
@@ -52,7 +52,7 @@ end
 function lessSleep(event)
 	if(event.phase == "ended") then
 		if(stats.sleep <= 100) then
-			stats.sleep = stats.sleep - math.random(5, 12)
+			stats.sleep = stats.sleep - math.random(5, 10)
 			stats.refresh()
 		end
 	end
@@ -125,7 +125,7 @@ end
 function hungrier(event)
 	if(event.phase == "ended") then
 		if(stats.hunger <= 100) then
-			stats.hunger = stats.hunger - math.random(4, 12)
+			stats.hunger = stats.hunger - math.random(4, 10)
 			stats.refresh()
 		end
 	end
