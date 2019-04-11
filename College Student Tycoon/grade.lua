@@ -3,7 +3,7 @@ local stats = require "stats"
 local grade = { }
 
 function grade.displayGrade()
-	local gradeCalculation = (stats.sleep + stats.intel + stats.happiness)/3 
+	local gradeCalculation = (endHunger + endSleep + endHunger + endInt) / 4  
 
 	if (gradeCalculation > 90) then
 		grade.gradeText = display.newText("Grade = A", 960, 650, "Ariel Black", 50)

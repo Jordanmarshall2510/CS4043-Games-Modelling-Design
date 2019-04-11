@@ -27,7 +27,7 @@ function game:show(event)
 		--Advances time when buildings are clicked on--
 		function timeOnwards(event)
 			if(event.phase == "ended") then
-				timeSystem.advanceTime(1)
+				timeSystem.advanceTime(2)
 			end
 		end
 
@@ -113,7 +113,6 @@ function game:show(event)
 		function onTouch(event)
 			if(event.phase == "ended") then 
 				transition.to(student, {x=event.x, y=event.y})
-				print(event.x, event.y)
 			end
 		end
 
@@ -172,10 +171,15 @@ function game:show(event)
 	
 function game:destroy(event)
     local sceneGroup = self.view
-    timeSystem.defaultValues()
+	endDay = timeSystem.day 
+	endHappiness = stats.happiness 
+	endSleep = stats.sleep
+	endHunger = stats.hunger
+	endInt = stats.intel
     timeSystem.hide() 
-	stats.defaultValues()
 	stats.hide()
+	stats.defaultValues()
+	timeSystem.defaultValues()
 	assets.clear() 
 end
 

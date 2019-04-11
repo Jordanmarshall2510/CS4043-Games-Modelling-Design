@@ -6,7 +6,7 @@ local eventID = 1
 
 function grant(event)  
 	if(event.phase == "ended") then
-		if (timeSystem.day == 4 or timeSystem.day == 8 or timeSystem.day == 12) and timeSystem.time == 10 then 
+		if (timeSystem.day == 4 or timeSystem.day == 8 or timeSystem.day == 12) and timeSystem.time == 9 then 
 			stats.money = stats.money + 500
 			stats.refresh()
 		end
@@ -15,9 +15,14 @@ end
 
 --Events when the buildings are clicked on--
  function smarter(event) 
+	if event.target.name == "library" then 
+		knowledge = math.random( 5, 7)
+		else 
+		knowledge = math.random(3, 5) 
+	end 
 	if(event.phase == "ended") then
 		if(stats.intel < 100) then
-			stats.intel = stats.intel + math.random(3, 5)
+			stats.intel = stats.intel + knowledge
 			stats.refresh()
 		end
 		if(stats.intel > 100) then
@@ -51,9 +56,15 @@ end
 end
 
 function lessSleep(event)
+	local exhaustion = 0 
+	if event.target.name == "library" then 
+		exhaustion = math.random(15, 20) 
+		else 
+		exhaustion = math.random(5, 10) 
+	end 
 	if(event.phase == "ended") then
 		if(stats.sleep <= 100) then
-			stats.sleep = stats.sleep - math.random(5, 10)
+			stats.sleep = stats.sleep - exhaustion
 			stats.refresh()
 		end
 	end
@@ -86,7 +97,7 @@ end
  function happier(event) 
 	local joy = 0 
 	if event.target.name == "bar" then 
-		joy = math.random(20, 50) 
+		joy = math.random(30, 70) 
 		else 
 		joy = math.random(5, 10) 
 	end
@@ -148,9 +159,9 @@ end
 function moneySpent(event)
 	local bill = 0
 	if event.target.name == "bar" then
-		bill = math.random(15, 50)
+		bill = math.random(25, 75)
 		else
-		bill = math.random(5, 15)
+		bill = math.random(10, 25)
 	end
 	if(event.phase == "ended") then
 		if(stats.money > 0) then

@@ -17,8 +17,8 @@ composer.gotoScene ( "splash", {effect = "fade", time = 0}  )
 physics.start( )
 physics.setGravity( 0, 0 )
 
+stats.defaultValues() 
+stats.text() 
 timeSystem.defaultValues() 
 timeSystem.text() 
 
-stats.defaultValues() 
-stats.text() 
