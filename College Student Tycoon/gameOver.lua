@@ -21,12 +21,13 @@ function gameOver:show(event)
 	
     elseif (phase == "did") then
 
-		if(endDay ~= 14) then
-			grade.gradeText = display.newText(sceneGroup, "You dropped out.", 960, 650 , "Ariel Black" , 50)
-			grade.gradeText:setFillColor( 1, 0, 0 )
+		if(endDay == 14) then
+			result = grade.calculate()
+			grade = display.newText(sceneGroup, "Grade = "..result, 960, 650 , "Ariel Black" , 50) 
 		else 
-			grade.displayGrade()
-		end
+			grade = display.newText(sceneGroup, "You dropped out.", 960, 650 , "Ariel Black" , 50)
+		end 
+		grade:setFillColor( 1, 0, 0 )
 		
 		local restart = display.newImageRect(sceneGroup, "restartButton.png", 300, 100)
 		restart.x = 960
@@ -49,7 +50,9 @@ function exitGame(event)
 end
 
 function gameOver:destroy (event) 	
-	grade.gradeText:removeSelf() 
+	if grade.gradeText ~= nil then 
+		grade.gradeText:removeSelf() 
+	end 
 	stats.text() 
 	timeSystem.text() 
 	local sceneGroup = self.view 

@@ -118,7 +118,7 @@ function sadder(event)
 	if event.target.name == "library" then 
 		sadness = math.random(10, 20) 
 		else 
-		sadness = math.random(5, 10) 
+		sadness = math.random(3, 7 ) 
 	end
 	if(event.phase == "ended") then
 		if(stats.happiness <= 100) then
@@ -159,9 +159,9 @@ end
 function moneySpent(event)
 	local bill = 0
 	if event.target.name == "bar" then
-		bill = math.random(25, 75)
+		bill = math.random(40, 100)
 		else
-		bill = math.random(10, 25)
+		bill = math.random(25, 50)
 	end
 	if(event.phase == "ended") then
 		if(stats.money > 0) then

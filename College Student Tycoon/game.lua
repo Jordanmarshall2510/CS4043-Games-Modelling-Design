@@ -18,7 +18,7 @@ function game:show(event)
 	
     if(phase == "will") then
 		assets.display()
-	
+		
     elseif(phase == "did") then
 		stats.unhide() 
 		timeSystem.unhide() 
@@ -171,9 +171,10 @@ function game:show(event)
 	
 function game:destroy(event)
     local sceneGroup = self.view
-	endDay = timeSystem.day 
+	endDay = timeSystem.day
 	endHappiness = stats.happiness 
 	endSleep = stats.sleep
+	endHygiene = stats.hygiene
 	endHunger = stats.hunger
 	endInt = stats.intel
     timeSystem.hide() 
@@ -184,7 +185,7 @@ function game:destroy(event)
 end
 
 function endGame(event) 
-	if(stats.money <= 0 or stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <= 0 or stats.intel <= 0 or timeSystem.day == 14) then
+	if(stats.money <= 0 or stats.sleep <= 0 or stats.hygiene <= 0 or stats.hunger <= 0 or stats.happiness <= 0 or stats.intel <= 0) or timeSystem.day == 14 then
 		composer.removeScene("game") 
 		composer.gotoScene("gameOver", {effect = "fade", time = 500}) 
 	end 
